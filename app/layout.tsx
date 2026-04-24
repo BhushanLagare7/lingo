@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import { Nunito } from "next/font/google";
 
+import { ClerkProvider } from "@clerk/nextjs";
+
 import "./globals.css";
 
 const nunito = Nunito({
@@ -21,7 +23,9 @@ export default function RootLayout({
 }>) {
   return (
     <html className={`${nunito.variable} h-full antialiased`} lang="en">
-      <body className="flex flex-col min-h-full font-sans">{children}</body>
+      <body className="flex flex-col min-h-full font-sans">
+        <ClerkProvider afterSignOutUrl="/">{children}</ClerkProvider>
+      </body>
     </html>
   );
 }
