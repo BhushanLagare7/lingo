@@ -26,31 +26,11 @@ const main = async () => {
 
     console.log("Inserting courses...");
     await db.insert(schema.courses).values([
-      {
-        id: 1,
-        title: "Spanish",
-        imageSrc: "/es.svg",
-      },
-      {
-        id: 2,
-        title: "French",
-        imageSrc: "/fr.svg",
-      },
-      {
-        id: 3,
-        title: "Italian",
-        imageSrc: "/it.svg",
-      },
-      {
-        id: 4,
-        title: "Japanese",
-        imageSrc: "/jp.svg",
-      },
-      {
-        id: 5,
-        title: "Croatian",
-        imageSrc: "/hr.svg",
-      },
+      { title: "Spanish", imageSrc: "/es.svg" },
+      { title: "French", imageSrc: "/fr.svg" },
+      { title: "Italian", imageSrc: "/it.svg" },
+      { title: "Japanese", imageSrc: "/jp.svg" },
+      { title: "Croatian", imageSrc: "/hr.svg" },
     ]);
 
     console.log("Seeding complete ✅");

@@ -1,7 +1,7 @@
 "use client";
 
 import { useTransition } from "react";
-import { useRouter } from "next/navigation";
+import { unstable_rethrow, useRouter } from "next/navigation";
 
 import { toast } from "sonner";
 
@@ -26,9 +26,7 @@ export const List = ({ activeCourseId, courses }: ListProps) => {
 
     startTransition(() => {
       upsertUserProgress(id).catch((error) => {
-        // TODO: This is temporary, will use a proper error boundary
-        // when we implement the final routing logic.
-        if (error?.message === "NEXT_REDIRECT") return;
+        unstable_rethrow(error);
         toast.error("Failed to start course");
       });
     });
