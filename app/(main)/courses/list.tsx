@@ -25,7 +25,12 @@ export const List = ({ activeCourseId, courses }: ListProps) => {
     if (id === activeCourseId) return router.push("/learn");
 
     startTransition(() => {
-      upsertUserProgress(id).catch(() => toast.error("Failed to start course"));
+      upsertUserProgress(id).catch((error) => {
+        // TODO: This is temporary, will use a proper error boundary
+        // when we implement the final routing logic.
+        if (error?.message === "NEXT_REDIRECT") return;
+        toast.error("Failed to start course");
+      });
     });
   };
 
