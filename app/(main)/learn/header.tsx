@@ -10,7 +10,7 @@ interface HeaderProps {
 
 export const Header = ({ title }: HeaderProps) => {
   return (
-    <div className="flex sticky top-0 z-50 justify-between items-center pb-3 w-full bg-white border-b-2 text-neutral-400 lg:-mt-7 lg:pt-7">
+    <div className="sticky top-0 bg-white pb-3 lg:pt-[28px] lg:mt-[-28px] flex items-center justify-between border-b-2 mb-5 text-neutral-400 lg:z-50">
       <Link href="/courses">
         <Button size="sm" variant="ghost">
           <ArrowLeftIcon className="stroke-2 size-5 text-neutral-400" />
