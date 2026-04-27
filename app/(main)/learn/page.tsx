@@ -3,21 +3,35 @@ import { redirect } from "next/navigation";
 import { FeedWrapper } from "@/components/feed-wrapper";
 import { StickyWrapper } from "@/components/sticky-wrapper";
 import { UserProgress } from "@/components/user-progress";
-import { getUnits, getUserProgress } from "@/db/queries";
+import {
+  getCourseProgress,
+  getLessonPercentage,
+  getUnits,
+  getUserProgress,
+} from "@/db/queries";
 
 import { Header } from "./header";
 import { Unit } from "./unit";
 
 const LearnPage = async () => {
   const userProgressPromise = getUserProgress();
+  const courseProgressPromise = getCourseProgress();
+  const lessonPercentagePromise = getLessonPercentage();
   const unitsPromise = getUnits();
 
-  const [userProgress, units] = await Promise.all([
-    userProgressPromise,
-    unitsPromise,
-  ]);
+  const [userProgress, courseProgress, lessonPercentage, units] =
+    await Promise.all([
+      userProgressPromise,
+      courseProgressPromise,
+      lessonPercentagePromise,
+      unitsPromise,
+    ]);
 
   if (!userProgress || !userProgress.activeCourse) {
+    redirect("/courses");
+  }
+
+  if (!courseProgress) {
     redirect("/courses");
   }
 
@@ -36,8 +50,8 @@ const LearnPage = async () => {
         {units.map((unit) => (
           <div key={unit.id} className="mb-10">
             <Unit
-              activeLesson={undefined}
-              activeLessonPercentage={0}
+              activeLesson={courseProgress.activeLesson}
+              activeLessonPercentage={lessonPercentage}
               description={unit.description}
               id={unit.id}
               lessons={unit.lessons}
