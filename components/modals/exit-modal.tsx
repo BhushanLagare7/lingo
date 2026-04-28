@@ -62,7 +62,7 @@ export const ExitModal = () => {
               variant="danger-outline"
               onClick={() => {
                 close();
-                router.push("learn");
+                router.push("/learn");
               }}
             >
               End session
