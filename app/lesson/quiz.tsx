@@ -5,6 +5,7 @@ import { useState } from "react";
 import { challengeOptions, challenges, userSubscription } from "@/db/schema";
 
 import { Challenge } from "./challenge";
+import { Footer } from "./footer";
 import { Header } from "./header";
 import { QuestionBubble } from "./question-bubble";
 
@@ -27,6 +28,7 @@ export const Quiz = ({
   userSubscription,
 }: QuizProps) => {
   const [hearts, setHearts] = useState(initialHearts);
+  const [status, setStatus] = useState<"none" | "wrong" | "correct">("none");
   const [percentage, setPercentage] = useState(initialPercentage);
   const [challenges] = useState(initialLessonChallenges);
   const [activeIndex, setActiveIndex] = useState(() => {
@@ -35,9 +37,15 @@ export const Quiz = ({
     );
     return uncompletedIndex === -1 ? 0 : uncompletedIndex;
   });
+  const [selectedOption, setSelectedOption] = useState<number>();
 
   const challenge = challenges[activeIndex];
   const options = challenge?.challengeOptions ?? [];
+
+  const onSelect = (id: number) => {
+    if (status !== "none") return;
+    setSelectedOption(id);
+  };
 
   const title =
     challenge.type === "ASSIST"
@@ -64,15 +72,16 @@ export const Quiz = ({
               <Challenge
                 disabled={false}
                 options={options}
-                selectedOption={undefined}
-                status="none"
+                selectedOption={selectedOption}
+                status={status}
                 type={challenge.type}
-                onSelect={() => {}}
+                onSelect={onSelect}
               />
             </div>
           </div>
         </div>
       </div>
+      <Footer disabled={!selectedOption} status={status} onCheck={() => {}} />
     </>
   );
 };
