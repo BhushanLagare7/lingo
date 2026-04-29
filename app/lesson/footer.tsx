@@ -1,4 +1,5 @@
-import { useKey, useMedia } from "react-use";
+import { useEffect, useState } from "react";
+import { useKey } from "react-use";
 
 import { CheckCircleIcon, XCircleIcon } from "lucide-react";
 
@@ -14,7 +15,19 @@ type Props = {
 
 export const Footer = ({ onCheck, status, disabled, lessonId }: Props) => {
   useKey("Enter", onCheck, {}, [onCheck]);
-  const isMobile = useMedia("(max-width: 1024px)");
+
+  // Hydration-safe media query: start with false (matches SSR),
+  // then update to real value after mount to avoid mismatch.
+  const [isMobile, setIsMobile] = useState(false);
+  useEffect(() => {
+    const mql = window.matchMedia("(max-width: 1024px)");
+    // eslint-disable-next-line react-hooks/set-state-in-effect
+    setIsMobile(mql.matches);
+
+    const handler = (e: MediaQueryListEvent) => setIsMobile(e.matches);
+    mql.addEventListener("change", handler);
+    return () => mql.removeEventListener("change", handler);
+  }, []);
 
   return (
     <footer
