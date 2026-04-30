@@ -1,6 +1,15 @@
-import { clerkMiddleware } from "@clerk/nextjs/server";
+import { clerkMiddleware, createRouteMatcher } from "@clerk/nextjs/server";
 
-export default clerkMiddleware();
+// Create a matcher for routes that should not be protected.
+// This means that if a user is not authenticated and is on a public route, they will be redirected to the sign-in page.
+const isPublicRoute = createRouteMatcher(["/api/webhooks/stripe"]);
+
+export default clerkMiddleware(async (auth, request) => {
+  // If the user is not authenticated and is not on a public route, protect the route.
+  if (!isPublicRoute(request)) {
+    await auth.protect();
+  }
+});
 
 export const config = {
   matcher: [
