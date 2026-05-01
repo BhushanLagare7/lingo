@@ -11,6 +11,17 @@ import {
 
 import { Button } from "@/components/ui/button";
 
+/**
+ * Global header for marketing pages containing branding and authentication controls.
+ * Server Component
+ *
+ * @returns A responsive header with the Lingo logo, and Clerk authentication buttons (login, sign-in/user profile) depending on the user's session state.
+ *
+ * @example
+ * ```tsx
+ * <Header />
+ * ```
+ */
 export const Header = () => {
   return (
     <header className="px-4 w-full h-20 border-b-2 border-slate-200">

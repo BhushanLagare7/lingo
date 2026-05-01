@@ -6,6 +6,18 @@ import { Separator as SeparatorPrimitive } from "radix-ui";
 
 import { cn } from "@/lib/utils";
 
+/**
+ * A visual divider component to separate content vertically or horizontally.
+ * Client Component
+ *
+ * @param props - Extends Radix UI Separator properties, including orientation and styling options.
+ * @returns A stylized line element (horizontal or vertical) for visual grouping.
+ *
+ * @example
+ * ```tsx
+ * <Separator orientation="horizontal" />
+ * ```
+ */
 function Separator({
   className,
   orientation = "horizontal",

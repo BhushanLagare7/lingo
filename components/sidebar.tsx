@@ -11,6 +11,18 @@ interface SidebarProps {
   className?: string;
 }
 
+/**
+ * Main application desktop sidebar providing top-level navigation and user profile access.
+ * Server Component
+ *
+ * @param props - {@link SidebarProps}
+ * @returns A vertical container with branding, navigation items for major sections (Learn, Leaderboard, Quests, Shop), and the Clerk user profile button.
+ *
+ * @example
+ * ```tsx
+ * <Sidebar className="hidden lg:flex" />
+ * ```
+ */
 export const Sidebar = ({ className }: SidebarProps) => {
   return (
     <div

@@ -8,6 +8,17 @@ import {
   TextInput,
 } from "react-admin";
 
+/**
+ * Form component to create a new Challenge record in the admin panel.
+ * Client Component (Inherited from react-admin context)
+ *
+ * @returns A form with inputs for challenge question, type (e.g. SELECT, ASSIST), lesson association, and order.
+ *
+ * @example
+ * ```tsx
+ * <ChallengeCreate />
+ * ```
+ */
 export const ChallengeCreate = () => {
   return (
     <Create>

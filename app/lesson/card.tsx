@@ -18,6 +18,18 @@ type Props = {
   type: (typeof challenges.$inferSelect)["type"];
 };
 
+/**
+ * Interactive card component used within a lesson challenge to display options.
+ * Client Component (used in Client Component)
+ *
+ * @param props - {@link Props}
+ * @returns A selectable card with optional image and audio playback on click. Also handles keyboard shortcuts for selection.
+ *
+ * @example
+ * ```tsx
+ * <Card id={1} text="Hola" shortcut="1" type="SELECT" onClick={() => {}} />
+ * ```
+ */
 export const Card = ({
   id,
   imageSrc,

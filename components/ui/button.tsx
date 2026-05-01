@@ -55,6 +55,18 @@ const buttonVariants = cva(
   },
 );
 
+/**
+ * Standardized button component with support for multiple visual variants and sizes.
+ * Client Component
+ *
+ * @param props - Button HTML attributes combined with variant and size options from `buttonVariants`. Includes `asChild` for rendering as a different HTML element.
+ * @returns A styled button or slotted element based on the `asChild` prop.
+ *
+ * @example
+ * ```tsx
+ * <Button variant="primary" size="lg">Click Me</Button>
+ * ```
+ */
 function Button({
   className,
   variant = "default",

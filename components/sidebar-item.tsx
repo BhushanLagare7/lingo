@@ -12,6 +12,18 @@ interface SidebarItemProps {
   label: string;
 }
 
+/**
+ * Individual navigation link item for the application sidebar.
+ * Client Component
+ *
+ * @param props - {@link SidebarItemProps}
+ * @returns A stylized button containing an icon and label that navigates to a specific route, highlighting if currently active.
+ *
+ * @example
+ * ```tsx
+ * <SidebarItem href="/learn" iconSrc="/learn.svg" label="Learn" />
+ * ```
+ */
 export const SidebarItem = ({ href, iconSrc, label }: SidebarItemProps) => {
   const pathname = usePathname();
   const isActive = pathname === href;

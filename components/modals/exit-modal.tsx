@@ -15,6 +15,17 @@ import {
 } from "@/components/ui/dialog";
 import { useExitModal } from "@/store/use-exit-modal";
 
+/**
+ * Modal dialog that prompts the user for confirmation before exiting a lesson.
+ * Client Component
+ *
+ * @returns A dialog box containing a warning message and options to either continue learning or exit. Managed globally via zustand.
+ *
+ * @example
+ * ```tsx
+ * <ExitModal />
+ * ```
+ */
 export const ExitModal = () => {
   const router = useRouter();
   const [mounted, setMounted] = useState(false);

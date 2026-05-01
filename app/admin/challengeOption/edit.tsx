@@ -7,6 +7,17 @@ import {
   TextInput,
 } from "react-admin";
 
+/**
+ * Form component to edit an existing Challenge Option record in the admin panel.
+ * Client Component (Inherited from react-admin context)
+ *
+ * @returns A form populated with existing challenge option data for updating properties.
+ *
+ * @example
+ * ```tsx
+ * <ChallengeOptionEdit />
+ * ```
+ */
 export const ChallengeOptionEdit = () => {
   return (
     <Edit>

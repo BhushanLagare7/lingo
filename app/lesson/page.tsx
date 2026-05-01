@@ -4,6 +4,17 @@ import { getLesson, getUserProgress, getUserSubscription } from "@/db/queries";
 
 import { Quiz } from "./quiz";
 
+/**
+ * Entry point for the user's current active lesson.
+ * Server Component
+ *
+ * @returns Fetches the user's active lesson data and renders the `Quiz` component. Redirects to `/learn` if no active lesson exists.
+ *
+ * @example
+ * ```tsx
+ * <LessonPage />
+ * ```
+ */
 const LessonPage = async () => {
   const lessonPromise = getLesson();
   const userProgressPromise = getUserProgress();

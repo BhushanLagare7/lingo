@@ -12,6 +12,18 @@ interface ChallengeProps {
   onSelect: (id: number) => void;
 }
 
+/**
+ * Renders the available answer options for a specific challenge.
+ * Client Component
+ *
+ * @param props - {@link ChallengeProps}
+ * @returns A grid of `Card` components representing multiple-choice options, adapting layout based on the challenge type (e.g. ASSIST vs SELECT).
+ *
+ * @example
+ * ```tsx
+ * <Challenge options={[]} status="none" type="SELECT" onSelect={() => {}} />
+ * ```
+ */
 export const Challenge = ({
   disabled,
   options,

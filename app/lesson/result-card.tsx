@@ -7,6 +7,18 @@ type Props = {
   variant: "points" | "hearts";
 };
 
+/**
+ * Displays a summary metric (points or hearts) at the end of a completed lesson.
+ * Server Component
+ *
+ * @param props - {@link Props}
+ * @returns A styled card showing the total XP earned or hearts remaining.
+ *
+ * @example
+ * ```tsx
+ * <ResultCard value={100} variant="points" />
+ * ```
+ */
 export const ResultCard = ({ value, variant }: Props) => {
   const imageSrc = variant === "hearts" ? "/heart.svg" : "/points.svg";
 

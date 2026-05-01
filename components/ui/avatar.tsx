@@ -6,6 +6,21 @@ import { Avatar as AvatarPrimitive } from "radix-ui";
 
 import { cn } from "@/lib/utils";
 
+/**
+ * A stylized image avatar component with fallback support.
+ * Client Component
+ *
+ * @param props - Standard HTML props along with an optional `size` property.
+ * @returns A rounded avatar wrapper element.
+ *
+ * @example
+ * ```tsx
+ * <Avatar size="lg">
+ *   <AvatarImage src="/avatar.png" />
+ *   <AvatarFallback>JD</AvatarFallback>
+ * </Avatar>
+ * ```
+ */
 function Avatar({
   className,
   size = "default",

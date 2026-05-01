@@ -11,6 +11,18 @@ import {
 } from "lucide-react";
 import { Toaster as Sonner, type ToasterProps } from "sonner";
 
+/**
+ * A global toast notification container leveraging the `sonner` library.
+ * Client Component
+ *
+ * @param props - Configuration options for the toaster, such as position and styling overrides.
+ * @returns The toast provider element that should be placed high in the component tree.
+ *
+ * @example
+ * ```tsx
+ * <Toaster />
+ * ```
+ */
 const Toaster = ({ ...props }: ToasterProps) => {
   const { theme = "system" } = useTheme();
 

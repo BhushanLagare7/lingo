@@ -6,6 +6,18 @@ import { Progress as ProgressPrimitive } from "radix-ui";
 
 import { cn } from "@/lib/utils";
 
+/**
+ * A styled progress bar built on top of Radix UI primitives.
+ * Client Component
+ *
+ * @param props - Standard component props for Radix UI Progress root, including `value` representing the percentage.
+ * @returns A horizontal progress bar indicating completion percentage.
+ *
+ * @example
+ * ```tsx
+ * <Progress value={50} />
+ * ```
+ */
 function Progress({
   className,
   value,

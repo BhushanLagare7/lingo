@@ -22,6 +22,17 @@ import { UnitList } from "./unit/list";
 
 const dataProvider = simpleRestProvider("/api");
 
+/**
+ * Main administrative application interface using react-admin.
+ * Client Component
+ *
+ * @returns The react-admin Admin component with configured resources for courses, units, lessons, challenges, and options.
+ *
+ * @example
+ * ```tsx
+ * <App />
+ * ```
+ */
 const App = () => {
   return (
     <Admin dataProvider={dataProvider}>

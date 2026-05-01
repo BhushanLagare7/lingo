@@ -9,6 +9,18 @@ interface QuestsProps {
   points: number;
 }
 
+/**
+ * Sidebar widget displaying a summary of the user's quest progress.
+ * Server Component
+ *
+ * @param props - {@link QuestsProps}
+ * @returns A compact UI displaying available quests and a progress bar based on the user's current points.
+ *
+ * @example
+ * ```tsx
+ * <Quests points={150} />
+ * ```
+ */
 export const Quests = ({ points }: QuestsProps) => {
   return (
     <div className="p-4 space-y-4 rounded-xl border-2">

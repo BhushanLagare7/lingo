@@ -16,6 +16,18 @@ interface ItemsProps {
   points: number;
 }
 
+/**
+ * Displays the purchasable items and upgrades available in the shop.
+ * Client Component
+ *
+ * @param props - {@link ItemsProps}
+ * @returns A list of shop items including the option to refill hearts with points and upgrade to an unlimited hearts subscription via Stripe.
+ *
+ * @example
+ * ```tsx
+ * <Items hasActiveSubscription={false} hearts={3} points={100} />
+ * ```
+ */
 export const Items = ({
   hasActiveSubscription,
   hearts,

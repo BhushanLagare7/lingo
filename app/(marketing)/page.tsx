@@ -12,6 +12,17 @@ import {
 
 import { Button } from "@/components/ui/button";
 
+/**
+ * Landing page of the application that introduces users to Lingo.
+ * Server Component
+ *
+ * @returns The main promotional content including a hero image, tagline, and call-to-action buttons tied to Clerk authentication.
+ *
+ * @example
+ * ```tsx
+ * <HomePage />
+ * ```
+ */
 const HomePage = () => {
   return (
     <div className="max-w-249.5 mx-auto flex-1 w-full flex flex-col lg:flex-row items-center justify-center p-4 gap-2">
