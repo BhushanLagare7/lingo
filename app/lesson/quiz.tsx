@@ -28,7 +28,11 @@ interface QuizProps {
   })[];
   initialLessonId: number;
   initialPercentage: number;
-  userSubscription: typeof userSubscription.$inferSelect | null;
+  userSubscription:
+    | (typeof userSubscription.$inferSelect & {
+        isActive: boolean;
+      })
+    | null;
 }
 
 export const Quiz = ({

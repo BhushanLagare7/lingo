@@ -1,6 +1,8 @@
 import { redirect } from "next/navigation";
 
 import { FeedWrapper } from "@/components/feed-wrapper";
+import { Promo } from "@/components/promo";
+import { Quests } from "@/components/quests";
 import { StickyWrapper } from "@/components/sticky-wrapper";
 import { UserProgress } from "@/components/user-progress";
 import {
@@ -8,6 +10,7 @@ import {
   getLessonPercentage,
   getUnits,
   getUserProgress,
+  getUserSubscription,
 } from "@/db/queries";
 
 import { Header } from "./header";
@@ -18,14 +21,21 @@ const LearnPage = async () => {
   const courseProgressPromise = getCourseProgress();
   const lessonPercentagePromise = getLessonPercentage();
   const unitsPromise = getUnits();
+  const userSubscriptionPromise = getUserSubscription();
 
-  const [userProgress, courseProgress, lessonPercentage, units] =
-    await Promise.all([
-      userProgressPromise,
-      courseProgressPromise,
-      lessonPercentagePromise,
-      unitsPromise,
-    ]);
+  const [
+    userProgress,
+    courseProgress,
+    lessonPercentage,
+    units,
+    userSubscription,
+  ] = await Promise.all([
+    userProgressPromise,
+    courseProgressPromise,
+    lessonPercentagePromise,
+    unitsPromise,
+    userSubscriptionPromise,
+  ]);
 
   if (!userProgress || !userProgress.activeCourse) {
     redirect("/courses");
@@ -35,15 +45,19 @@ const LearnPage = async () => {
     redirect("/courses");
   }
 
+  const isPro = !!userSubscription?.isActive;
+
   return (
     <div className="flex flex-row-reverse gap-12 px-6">
       <StickyWrapper>
         <UserProgress
           activeCourse={userProgress.activeCourse}
-          hasActiveSubscription={false}
+          hasActiveSubscription={isPro}
           hearts={userProgress.hearts}
           points={userProgress.points}
         />
+        {!isPro && <Promo />}
+        <Quests points={userProgress.points} />
       </StickyWrapper>
       <FeedWrapper>
         <Header title={userProgress.activeCourse.title} />

@@ -1,7 +1,7 @@
 import { redirect } from "next/navigation";
 
 import { Quiz } from "@/app/lesson/quiz";
-import { getLesson, getUserProgress } from "@/db/queries";
+import { getLesson, getUserProgress, getUserSubscription } from "@/db/queries";
 
 interface LessonIdPageProps {
   params: {
@@ -14,10 +14,12 @@ const LessonIdPage = async ({ params }: LessonIdPageProps) => {
 
   const lessonPromise = getLesson(lessonId);
   const userProgressPromise = getUserProgress();
+  const userSubscriptionPromise = getUserSubscription();
 
-  const [lesson, userProgress] = await Promise.all([
+  const [lesson, userProgress, userSubscription] = await Promise.all([
     lessonPromise,
     userProgressPromise,
+    userSubscriptionPromise,
   ]);
 
   if (!lesson || !userProgress) {
@@ -35,7 +37,7 @@ const LessonIdPage = async ({ params }: LessonIdPageProps) => {
       initialLessonChallenges={lesson.challenges}
       initialLessonId={lesson.id}
       initialPercentage={initialPercentage}
-      userSubscription={null} // TODO: Add user subscription
+      userSubscription={userSubscription}
     />
   );
 };
