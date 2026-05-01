@@ -8,9 +8,7 @@ import { toast } from "sonner";
 import { refillHearts } from "@/actions/user-progress";
 import { createStripeUrl } from "@/actions/user-subscription";
 import { Button } from "@/components/ui/button";
-
-// TODO: Move alongside Item component constants into a shared constants file
-const POINTS_TO_REFILL = 10;
+import { POINTS_TO_REFILL } from "@/constants";
 
 interface ItemsProps {
   hasActiveSubscription: boolean;
