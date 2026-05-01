@@ -1,3 +1,5 @@
+"use client";
+
 import Image from "next/image";
 
 import { CheckIcon } from "lucide-react";
@@ -13,6 +15,18 @@ interface CardProps {
   disabled?: boolean;
 }
 
+/**
+ * Interactive card component representing a course selection option.
+ * Client Component
+ *
+ * @param props - {@link CardProps}
+ * @returns A stylized, clickable card displaying the course image, title, and an active checkmark state if currently selected.
+ *
+ * @example
+ * ```tsx
+ * <Card id={1} imageSrc="/es.svg" title="Spanish" onClick={(id) => {}} active={true} />
+ * ```
+ */
 export const Card = ({
   id,
   imageSrc,

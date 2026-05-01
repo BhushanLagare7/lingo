@@ -14,6 +14,17 @@ import {
 } from "@/components/ui/dialog";
 import { usePracticeModal } from "@/store/use-practice-modal";
 
+/**
+ * Modal dialog that informs the user about practice lessons.
+ * Client Component
+ *
+ * @returns A dialog box containing an explanation that practice lessons restore hearts without risk of losing them. State is managed globally via zustand.
+ *
+ * @example
+ * ```tsx
+ * <PracticeModal />
+ * ```
+ */
 export const PracticeModal = () => {
   const [mounted, setMounted] = useState(false);
   const { close, isOpen } = usePracticeModal();

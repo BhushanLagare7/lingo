@@ -2,6 +2,17 @@ import Image from "next/image";
 
 import { Button } from "@/components/ui/button";
 
+/**
+ * Global footer for marketing pages displaying supported language options.
+ * Server Component
+ *
+ * @returns A responsive footer with buttons showing the flags and names of available languages.
+ *
+ * @example
+ * ```tsx
+ * <Footer />
+ * ```
+ */
 export const Footer = () => {
   return (
     <footer className="hidden p-2 w-full h-20 border-t-2 lg:block border-slate-200">

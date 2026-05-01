@@ -9,6 +9,18 @@ interface Props {
   description: string;
 }
 
+/**
+ * Banner component displaying unit information at the top of a lesson section.
+ * Server Component
+ *
+ * @param props - {@link Props}
+ * @returns A stylized banner with the unit's title, description, and a "Continue" button linking to the current lesson.
+ *
+ * @example
+ * ```tsx
+ * <UnitBanner title="Unit 1" description="Learn the basics" />
+ * ```
+ */
 export const UnitBanner = ({ title, description }: Props) => {
   return (
     <div className="flex justify-between items-center p-5 w-full text-white bg-green-500 rounded-xl">

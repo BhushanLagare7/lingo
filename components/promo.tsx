@@ -3,6 +3,17 @@ import Link from "next/link";
 
 import { Button } from "@/components/ui/button";
 
+/**
+ * Sidebar promotional widget encouraging users to upgrade to a Pro subscription.
+ * Server Component
+ *
+ * @returns A visually distinct UI component linking to the shop page for upgrading.
+ *
+ * @example
+ * ```tsx
+ * <Promo />
+ * ```
+ */
 export const Promo = () => {
   return (
     <div className="p-4 space-y-4 rounded-xl border-2">

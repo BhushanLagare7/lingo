@@ -35,6 +35,18 @@ interface QuizProps {
     | null;
 }
 
+/**
+ * Core client-side interactive component that manages the state of a lesson.
+ * Client Component
+ *
+ * @param props - {@link QuizProps}
+ * @returns The main lesson interface, managing challenges, tracking answers, playing audio feedback, and displaying the completion screen.
+ *
+ * @example
+ * ```tsx
+ * <Quiz initialHearts={5} initialLessonChallenges={[]} initialLessonId={1} initialPercentage={0} userSubscription={null} />
+ * ```
+ */
 export const Quiz = ({
   initialHearts,
   initialLessonChallenges,

@@ -9,6 +9,18 @@ interface LessonIdPageProps {
   };
 }
 
+/**
+ * Server-rendered page for a specific lesson within a course.
+ * Server Component
+ *
+ * @param props - {@link LessonIdPageProps}
+ * @returns Renders the `Quiz` client component populated with the specific lesson's data. Redirects to `/learn` if not found.
+ *
+ * @example
+ * ```tsx
+ * <LessonIdPage params={{ lessonId: 1 }} />
+ * ```
+ */
 const LessonIdPage = async ({ params }: LessonIdPageProps) => {
   const { lessonId } = await params;
 

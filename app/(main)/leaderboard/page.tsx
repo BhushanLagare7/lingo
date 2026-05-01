@@ -14,6 +14,17 @@ import {
   getUserSubscription,
 } from "@/db/queries";
 
+/**
+ * Renders the Leaderboard page displaying top users ranked by experience points.
+ * Server Component
+ *
+ * @returns The leaderboard UI containing user progress sidebars, and a feed displaying the top 10 users with their avatars and points. Redirects to courses if no active course is found.
+ *
+ * @example
+ * ```tsx
+ * <LeaderBoardPage />
+ * ```
+ */
 const LeaderBoardPage = async () => {
   const useProgressPromise = getUserProgress();
   const userSubscriptionPromise = getUserSubscription();

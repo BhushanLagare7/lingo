@@ -1,5 +1,16 @@
 import { Button } from "@/components/ui/button";
 
+/**
+ * Renders a showcase page demonstrating the various button variants available in the application.
+ * Server Component
+ *
+ * @returns A container with all configured button variants for visual testing and reference.
+ *
+ * @example
+ * ```tsx
+ * <ButtonsPage />
+ * ```
+ */
 const ButtonsPage = () => {
   return (
     <div className="flex flex-col p-4 space-y-4 max-w-50">

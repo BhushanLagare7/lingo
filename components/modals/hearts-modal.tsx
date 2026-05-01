@@ -15,6 +15,17 @@ import {
 } from "@/components/ui/dialog";
 import { useHeartsModal } from "@/store/use-hearts-modal";
 
+/**
+ * Modal dialog that alerts the user when they have run out of hearts.
+ * Client Component
+ *
+ * @returns A dialog box prompting the user to navigate to the store to refill hearts or upgrade to Pro. Managed globally via zustand.
+ *
+ * @example
+ * ```tsx
+ * <HeartsModal />
+ * ```
+ */
 export const HeartsModal = () => {
   const router = useRouter();
   const [mounted, setMounted] = useState(false);

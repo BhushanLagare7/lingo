@@ -16,6 +16,17 @@ import {
 import { Header } from "./header";
 import { Unit } from "./unit";
 
+/**
+ * The main learning page displaying the active course curriculum.
+ * Server Component
+ *
+ * @returns The learn page UI containing the user's progress sidebars, course header, and a feed of course units and their corresponding lesson buttons. Redirects to the courses page if the user has no active course.
+ *
+ * @example
+ * ```tsx
+ * <LearnPage />
+ * ```
+ */
 const LearnPage = async () => {
   const userProgressPromise = getUserProgress();
   const courseProgressPromise = getCourseProgress();

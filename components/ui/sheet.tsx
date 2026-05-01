@@ -8,6 +8,21 @@ import { Dialog as SheetPrimitive } from "radix-ui";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 
+/**
+ * The root component for creating sliding panel (sheet) overlays.
+ * Client Component
+ *
+ * @param props - Sheet properties inherited from Radix UI Dialog primitive.
+ * @returns A primitive dialog context provider designed to render content anchored to the edges of the screen.
+ *
+ * @example
+ * ```tsx
+ * <Sheet>
+ *   <SheetTrigger>Open</SheetTrigger>
+ *   <SheetContent side="right">Menu</SheetContent>
+ * </Sheet>
+ * ```
+ */
 function Sheet({ ...props }: React.ComponentProps<typeof SheetPrimitive.Root>) {
   return <SheetPrimitive.Root data-slot="sheet" {...props} />;
 }

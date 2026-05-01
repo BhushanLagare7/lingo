@@ -15,6 +15,18 @@ interface ListProps {
   activeCourseId?: typeof userProgress.$inferSelect.activeCourseId;
 }
 
+/**
+ * Renders a grid of course cards allowing users to view and select courses to learn.
+ * Client Component
+ *
+ * @param props - {@link ListProps}
+ * @returns A responsive grid of `Card` components representing available courses. Handles course selection interactions and redirects to the learn page.
+ *
+ * @example
+ * ```tsx
+ * <List courses={coursesArray} activeCourseId={1} />
+ * ```
+ */
 export const List = ({ activeCourseId, courses }: ListProps) => {
   const router = useRouter();
   const [pending, startTransition] = useTransition();

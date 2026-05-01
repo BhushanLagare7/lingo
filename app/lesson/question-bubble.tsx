@@ -4,6 +4,18 @@ interface QuestionBubbleProps {
   question: string;
 }
 
+/**
+ * Displays a speech bubble alongside a mascot avatar to present a question or prompt.
+ * Server Component
+ *
+ * @param props - {@link QuestionBubbleProps}
+ * @returns A UI component with the Lingo mascot "speaking" the provided question text.
+ *
+ * @example
+ * ```tsx
+ * <QuestionBubble question="What does this mean?" />
+ * ```
+ */
 export const QuestionBubble = ({ question }: QuestionBubbleProps) => {
   return (
     <div className="flex gap-x-6 items-center mb-6">

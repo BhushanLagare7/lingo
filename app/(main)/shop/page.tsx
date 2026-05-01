@@ -10,12 +10,23 @@ import { getUserProgress, getUserSubscription } from "@/db/queries";
 
 import { Items } from "./items";
 
+/**
+ * Renders the Shop page where users can spend points or manage subscriptions.
+ * Server Component
+ *
+ * @returns The shop page UI containing the user's progress sidebars and a feed showing the items component. Redirects to courses if no active course is found.
+ *
+ * @example
+ * ```tsx
+ * <ShopPage />
+ * ```
+ */
 const ShopPage = async () => {
-  const useProgressPromise = getUserProgress();
+  const userProgressPromise = getUserProgress();
   const userSubscriptionPromise = getUserSubscription();
 
   const [userProgress, userSubscription] = await Promise.all([
-    useProgressPromise,
+    userProgressPromise,
     userSubscriptionPromise,
   ]);
 

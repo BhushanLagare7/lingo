@@ -1,6 +1,17 @@
 "use client";
 import { Edit, required, SimpleForm, TextInput } from "react-admin";
 
+/**
+ * Form component to edit an existing Course record in the admin panel.
+ * Client Component
+ *
+ * @returns A form populated with existing course data for updating title and image source.
+ *
+ * @example
+ * ```tsx
+ * <CourseEdit />
+ * ```
+ */
 export const CourseEdit = () => {
   return (
     <Edit>

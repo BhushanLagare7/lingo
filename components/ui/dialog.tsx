@@ -8,6 +8,21 @@ import { Dialog as DialogPrimitive } from "radix-ui";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 
+/**
+ * The root component for creating accessible dialogs (modals).
+ * Client Component
+ *
+ * @param props - Dialog root properties inherited from Radix UI.
+ * @returns A primitive dialog context provider that coordinates trigger and content interactions.
+ *
+ * @example
+ * ```tsx
+ * <Dialog>
+ *   <DialogTrigger>Open</DialogTrigger>
+ *   <DialogContent>Content</DialogContent>
+ * </Dialog>
+ * ```
+ */
 function Dialog({
   ...props
 }: React.ComponentProps<typeof DialogPrimitive.Root>) {

@@ -13,6 +13,18 @@ interface UserProgressProps {
   points: number;
 }
 
+/**
+ * Displays top-level user progress metrics including the active course, points, and hearts.
+ * Client Component (used implicitly on Server but uses next/link)
+ *
+ * @param props - {@link UserProgressProps}
+ * @returns A horizontal layout with navigation buttons for the current course, user points, and remaining hearts (or infinity symbol if subscribed).
+ *
+ * @example
+ * ```tsx
+ * <UserProgress activeCourse={course} hasActiveSubscription={true} hearts={5} points={100} />
+ * ```
+ */
 export const UserProgress = ({
   activeCourse,
   hasActiveSubscription,

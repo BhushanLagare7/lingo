@@ -7,6 +7,17 @@ import {
   TextInput,
 } from "react-admin";
 
+/**
+ * Form component to create a new Challenge Option record in the admin panel.
+ * Client Component (Inherited from react-admin context)
+ *
+ * @returns A form with inputs for option text, correctness flag, challenge association, image URL, and audio URL.
+ *
+ * @example
+ * ```tsx
+ * <ChallengeOptionCreate />
+ * ```
+ */
 export const ChallengeOptionCreate = () => {
   return (
     <Create>

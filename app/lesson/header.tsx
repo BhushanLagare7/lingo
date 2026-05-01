@@ -11,6 +11,18 @@ interface HeaderProps {
   percentage: number;
 }
 
+/**
+ * Header component for the active lesson view.
+ * Client Component
+ *
+ * @param props - {@link HeaderProps}
+ * @returns A top navigation bar displaying a close button (triggers exit modal), lesson progress bar, and current hearts or infinity symbol.
+ *
+ * @example
+ * ```tsx
+ * <Header hasActiveSubscription={true} hearts={5} percentage={50} />
+ * ```
+ */
 export const Header = ({
   hasActiveSubscription,
   hearts,

@@ -19,6 +19,26 @@ interface Props {
   })[];
 }
 
+/**
+ * Represents a single learning unit, containing a banner and a list of lessons.
+ * Server Component
+ *
+ * @param props - {@link Props}
+ * @returns The unit banner followed by interactive lesson buttons arrayed in a zigzag pattern.
+ *
+ * @example
+ * ```tsx
+ * <Unit
+ *   id={1}
+ *   order={1}
+ *   title="Unit 1"
+ *   description="Basics"
+ *   activeLesson={activeLesson}
+ *   activeLessonPercentage={50}
+ *   lessons={lessons}
+ * />
+ * ```
+ */
 export const Unit = ({
   id,
   title,

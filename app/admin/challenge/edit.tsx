@@ -8,6 +8,17 @@ import {
   TextInput,
 } from "react-admin";
 
+/**
+ * Form component to edit an existing Challenge record in the admin panel.
+ * Client Component (Inherited from react-admin context)
+ *
+ * @returns A form populated with existing challenge data for updating properties.
+ *
+ * @example
+ * ```tsx
+ * <ChallengeEdit />
+ * ```
+ */
 export const ChallengeEdit = () => {
   return (
     <Edit>

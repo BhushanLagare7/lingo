@@ -9,6 +9,17 @@ import { UserProgress } from "@/components/user-progress";
 import { quests } from "@/constants";
 import { getUserProgress, getUserSubscription } from "@/db/queries";
 
+/**
+ * Renders the Quests page showing a user's progress towards specific point milestones.
+ * Server Component
+ *
+ * @returns The quests page UI containing user progress sidebars and a feed with available quests and their completion progress bars. Redirects to courses if no active course is found.
+ *
+ * @example
+ * ```tsx
+ * <QuestsPage />
+ * ```
+ */
 const QuestsPage = async () => {
   const useProgressPromise = getUserProgress();
   const userSubscriptionPromise = getUserSubscription();

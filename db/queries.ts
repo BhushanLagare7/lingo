@@ -16,6 +16,7 @@ import { cache } from "react";
 import { eq } from "drizzle-orm";
 import { auth } from "@clerk/nextjs/server";
 
+import { DAY_IN_MS } from "@/constants";
 import db from "@/db/drizzle";
 import {
   challengeProgress,
@@ -547,27 +548,62 @@ export const getTopTenUsers = cache(async () => {
   return data;
 });
 
-const DAY_IN_MS = 86_400_000;
+// TODO: Update the docs
+/**
+ * Retrieves the current authenticated user's subscription data.
+ *
+ * @function getUserSubscription
+ * @async
+ * @cached - Results are cached using React's cache() function
+ *
+ * @returns {Promise<UserSubscription | null>} Returns the user's subscription object
+ * or null if:
+ * - The user is not authenticated
+ * - No subscription record exists for the user
+ *
+ * @example
+ * // Basic usage in a Server Component
+ * const userSubscription = await getUserSubscription();
+ * if (userSubscription) {
+ *   console.log(userSubscription.isActive);
+ *   console.log(userSubscription.stripeSubscriptionId);
+ * }
+ *
+ * @typedef {Object} UserSubscription
+ * @property {string} userId - The unique identifier of the user
+ * @property {number} id - The unique identifier of the subscription
+ * @property {string} stripeCustomerId - The unique identifier of the customer
+ * @property {string} stripeSubscriptionId - The unique identifier of the subscription
+ * @property {string} stripePriceId - The unique identifier of the price
+ * @property {Date} stripeCurrentPeriodEnd - The end date of the current period
+ * @property {boolean} isActive - Whether the subscription is active
+ */
+
 export const getUserSubscription = cache(async () => {
   const { userId } = await auth();
 
+  // Return null for unauthenticated users
   if (!userId) {
     return null;
   }
 
+  // Fetch subscription record
   const data = await db.query.userSubscription.findFirst({
     where: eq(userSubscription.userId, userId),
   });
 
+  // Return null if no subscription found
   if (!data) {
     return null;
   }
 
+  // Check if subscription is active
   const isActive =
     data.stripePriceId &&
     data.stripeCurrentPeriodEnd &&
     data.stripeCurrentPeriodEnd.getTime() + DAY_IN_MS > Date.now();
 
+  // Return subscription object with isActive status
   return {
     ...data,
     isActive: !!isActive,
