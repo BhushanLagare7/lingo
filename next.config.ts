@@ -1,3 +1,5 @@
+import type { NextConfig } from "next";
+
 /**
  * @file next.config.ts
  * @description Next.js configuration for the Lingo application.
@@ -5,46 +7,10 @@
  */
 
 /**
- * Type definition for Next.js configuration
- * @typedef {import('next').NextConfig} NextConfigType
- */
-
-/**
  * Next.js configuration object
  * Configures HTTP headers for API routes to allow cross-origin requests
- * @type {NextConfigType}
- *
- * @example
- * // Example of how to configure headers in next.config.ts:
- * // module.exports = {
- * //   async headers() {
- * //     return [
- * //       {
- * //         source: "/api/(.*)",
- * //         headers: [
- * //           {
- * //             key: "Access-Control-Allow-Origin",
- * //             value: "*",
- * //           },
- * //           {
- * //             key: "Access-Control-Allow-Methods",
- * //             value: "GET, POST, PUT, DELETE, OPTIONS",
- * //           },
- * //           {
- * //             key: "Access-Control-Allow-Headers",
- * //             value: "Content-Type, Authorization",
- * //           },
- * //           {
- * //             key: "Content-Range",
- * //             value: "bytes : 0-9/*",
- * //           },
- * //         ],
- * //       },
- * //     ];
- * //   },
- * // };
  */
-const nextConfig = {
+const nextConfig: NextConfig = {
   async headers() {
     return [
       {
@@ -52,6 +18,7 @@ const nextConfig = {
         headers: [
           {
             key: "Access-Control-Allow-Origin",
+            // Wildcard allowed for public API; use environment-configured origin (e.g., process.env.ALLOWED_ORIGINS) for production
             value: "*",
           },
           {

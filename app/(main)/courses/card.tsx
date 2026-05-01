@@ -1,3 +1,5 @@
+"use client";
+
 import Image from "next/image";
 
 import { CheckIcon } from "lucide-react";
@@ -15,7 +17,7 @@ interface CardProps {
 
 /**
  * Interactive card component representing a course selection option.
- * Server Component (used in Client Component)
+ * Client Component
  *
  * @param props - {@link CardProps}
  * @returns A stylized, clickable card displaying the course image, title, and an active checkmark state if currently selected.

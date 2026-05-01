@@ -17,12 +17,16 @@ type Props = {
  * Interactive footer for the lesson quiz providing feedback and navigation actions.
  * Client Component
  *
- * @param props - {@link Props}
+ * @param props - Component properties
+ * @param props.onCheck - Function to check the current answer or proceed to the next step
+ * @param props.status - The current state of the answer ("correct", "wrong", "none", or "completed")
+ * @param props.disabled - Whether the footer actions should be disabled
+ * @param props.lessonId - The ID of the current lesson
  * @returns A responsive footer area indicating correct/wrong status and a button to check answers or proceed.
  *
  * @example
  * ```tsx
- * <Footer onCheck={() => {}} status="none" disabled={false} />
+ * <Footer onCheck={() => {}} status="none" disabled={false} lessonId={1} />
  * ```
  */
 export const Footer = ({ onCheck, status, disabled, lessonId }: Props) => {

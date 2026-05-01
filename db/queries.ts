@@ -565,8 +565,8 @@ export const getTopTenUsers = cache(async () => {
  * // Basic usage in a Server Component
  * const userSubscription = await getUserSubscription();
  * if (userSubscription) {
- *   console.log(userSubscription.activeCourse); // Current active course details
- *   console.log(userSubscription.points);       // User's total points
+ *   console.log(userSubscription.isActive);
+ *   console.log(userSubscription.stripeSubscriptionId);
  * }
  *
  * @typedef {Object} UserSubscription
@@ -576,6 +576,7 @@ export const getTopTenUsers = cache(async () => {
  * @property {string} stripeSubscriptionId - The unique identifier of the subscription
  * @property {string} stripePriceId - The unique identifier of the price
  * @property {Date} stripeCurrentPeriodEnd - The end date of the current period
+ * @property {boolean} isActive - Whether the subscription is active
  */
 
 export const getUserSubscription = cache(async () => {

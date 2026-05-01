@@ -22,11 +22,11 @@ import { Items } from "./items";
  * ```
  */
 const ShopPage = async () => {
-  const useProgressPromise = getUserProgress();
+  const userProgressPromise = getUserProgress();
   const userSubscriptionPromise = getUserSubscription();
 
   const [userProgress, userSubscription] = await Promise.all([
-    useProgressPromise,
+    userProgressPromise,
     userSubscriptionPromise,
   ]);
 

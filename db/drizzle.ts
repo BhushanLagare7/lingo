@@ -49,7 +49,7 @@ const sql = neon(connectionString);
  * // Create a new user
  * await db.insert(db.schema.users).values({
  *   name: "John Doe",
- *   email: [EMAIL_ADDRESS]",
+ *   email: "john.doe@example.com",
  * });
  *
  * // Access specific table schemas

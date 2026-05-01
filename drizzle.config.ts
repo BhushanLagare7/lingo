@@ -20,7 +20,7 @@ if (!connectionString) {
 
 /**
  * Drizzle ORM configuration object
- * @type {import('drizzle-kit'). defineConfig}
+ * @type {import('drizzle-kit').defineConfig}
  */
 export default defineConfig({
   out: "./drizzle",

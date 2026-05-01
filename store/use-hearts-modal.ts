@@ -34,7 +34,6 @@ interface HeartsModalState {
 /**
  * Zustand store for managing the hearts modal state
  * Provides functions to open, close, and check the status of the hearts modal
- * @type {import("zustand").UseStore<HeartsModalState>} - Zustand store instance
  *
  * @example
  * // Get the store instance

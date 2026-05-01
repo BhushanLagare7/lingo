@@ -4,7 +4,7 @@
  *
  * @param props - An object containing the child elements.
  * @param props.children - The main content elements to be rendered within the feed.
- * @returns A flex container that wraps the main content area with appropriate padding and positioning.
+ * @returns A flex child that grows to fill available space (using className="flex-1") and wraps/renders props.children as the main content.
  *
  * @example
  * ```tsx

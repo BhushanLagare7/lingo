@@ -13,13 +13,7 @@ import { auth } from "@clerk/nextjs/server";
  */
 const adminUserId = process.env.ADMIN_USER_ID;
 
-/**
- * Ensure admin user ID is configured
- * Throws an error if ADMIN_USER_ID is not set in the environment
- */
-if (!adminUserId) {
-  throw new Error("Please set ADMIN_USER_ID environment variable.");
-}
+
 
 /**
  * Check if the current user has admin privileges
@@ -47,6 +41,10 @@ export const isAdmin = async () => {
   const { userId } = await auth();
 
   if (!userId) {
+    return false;
+  }
+
+  if (!adminUserId) {
     return false;
   }
 
