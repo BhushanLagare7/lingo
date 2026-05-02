@@ -86,6 +86,7 @@ subscriptions are managed via Stripe webhooks and checkout sessions.
 ## Testing Strategy
 
 > TODO: Implement a comprehensive testing suite.
+
 - **Unit Testing**: Recommended tool: Vitest for utility and logic testing.
 - **Component Testing**: Recommended tool: React Testing Library.
 - **E2E Testing**: Recommended tool: Playwright or Cypress for core learning flows.
@@ -112,6 +113,6 @@ subscriptions are managed via Stripe webhooks and checkout sessions.
 
 ## Further Reading
 
-- [README.md](file:///Users/blagare/Desktop/Next%20JS%20Learning/lingo/README.md) - Project setup and feature overview.
+- [README.md](./README.md) - Project setup and feature overview.
 - [Drizzle Documentation](https://orm.drizzle.team/) - For database schema and migrations.
 - [Next.js Documentation](https://nextjs.org/docs) - For App Router and Server Actions.
