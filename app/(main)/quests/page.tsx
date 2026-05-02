@@ -9,6 +9,11 @@ import { UserProgress } from "@/components/user-progress";
 import { quests } from "@/constants";
 import { getUserProgress, getUserSubscription } from "@/db/queries";
 
+export const metadata = {
+  title: "Quests",
+  description: "Complete quests by earning points and track your progress.",
+};
+
 /**
  * Renders the Quests page showing a user's progress towards specific point milestones.
  * Server Component

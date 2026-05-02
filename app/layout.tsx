@@ -17,8 +17,26 @@ const nunito = Nunito({
 });
 
 export const metadata: Metadata = {
-  title: "Lingo",
-  description: "Language Learning App",
+  metadataBase: new URL("https://lingo-clone.example.com"),
+  title: {
+    default: "Lingo - Language Learning App",
+    template: "%s | Lingo",
+  },
+  description: "Learn new languages through interactive lessons, quests, and challenges.",
+  openGraph: {
+    title: "Lingo - Language Learning App",
+    description: "Learn new languages through interactive lessons, quests, and challenges.",
+    url: "https://lingo-clone.example.com",
+    siteName: "Lingo",
+    locale: "en_US",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Lingo - Language Learning App",
+    description: "Learn new languages through interactive lessons, quests, and challenges.",
+    creator: "@lingoapp",
+  },
 };
 
 /**

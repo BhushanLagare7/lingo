@@ -16,6 +16,11 @@ import {
 import { Header } from "./header";
 import { Unit } from "./unit";
 
+export const metadata = {
+  title: "Learn",
+  description: "Continue your language learning journey with interactive units and lessons.",
+};
+
 /**
  * The main learning page displaying the active course curriculum.
  * Server Component

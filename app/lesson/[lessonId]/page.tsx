@@ -1,11 +1,28 @@
+import type { Metadata } from "next";
 import { redirect } from "next/navigation";
 
 import { Quiz } from "@/app/lesson/quiz";
 import { getLesson, getUserProgress, getUserSubscription } from "@/db/queries";
 
 interface LessonIdPageProps {
-  params: {
+  params: Promise<{
     lessonId: number;
+  }>;
+}
+
+export async function generateMetadata({ params }: LessonIdPageProps): Promise<Metadata> {
+  const { lessonId } = await params;
+  const lesson = await getLesson(lessonId);
+
+  if (!lesson) {
+    return {
+      title: "Lesson Not Found",
+    };
+  }
+
+  return {
+    title: `Lesson ${lesson.id} - ${lesson.title}`,
+    description: `Complete lesson ${lesson.id} challenges to earn points.`,
   };
 }
 
