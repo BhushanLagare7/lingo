@@ -30,7 +30,15 @@ type Props = {
  * ```
  */
 export const Footer = ({ onCheck, status, disabled, lessonId }: Props) => {
-  useKey("Enter", onCheck, {}, [onCheck]);
+  useKey(
+    "Enter",
+    () => {
+      if (disabled) return;
+      onCheck();
+    },
+    {},
+    [disabled, onCheck],
+  );
 
   // Hydration-safe media query: start with false (matches SSR),
   // then update to real value after mount to avoid mismatch.
@@ -68,6 +76,7 @@ export const Footer = ({ onCheck, status, disabled, lessonId }: Props) => {
         )}
         {status === "completed" && (
           <Button
+            disabled={disabled}
             size={isMobile ? "sm" : "lg"}
             variant="default"
             onClick={() => (window.location.href = `/lesson/${lessonId}`)}
