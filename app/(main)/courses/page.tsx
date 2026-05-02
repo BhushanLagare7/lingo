@@ -2,6 +2,11 @@ import { getCourses, getUserProgress } from "@/db/queries";
 
 import { List } from "./list";
 
+export const metadata = {
+  title: "Language Courses",
+  description: "Explore and start learning a new language today.",
+};
+
 /**
  * Renders the Courses page displaying all available language courses.
  * Server Component

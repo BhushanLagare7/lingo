@@ -14,6 +14,11 @@ import {
   getUserSubscription,
 } from "@/db/queries";
 
+export const metadata = {
+  title: "Leaderboard",
+  description: "See where you stand among other learners in the community.",
+};
+
 /**
  * Renders the Leaderboard page displaying top users ranked by experience points.
  * Server Component

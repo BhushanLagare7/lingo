@@ -10,6 +10,11 @@ import { getUserProgress, getUserSubscription } from "@/db/queries";
 
 import { Items } from "./items";
 
+export const metadata = {
+  title: "Shop",
+  description: "Spend your points on cool stuff and manage your subscription.",
+};
+
 /**
  * Renders the Shop page where users can spend points or manage subscriptions.
  * Server Component
